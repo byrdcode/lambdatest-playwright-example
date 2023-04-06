@@ -16,8 +16,6 @@ test('Register account', async({page}) =>{
     await lambdatestMenu.selectRegisterLink();
     // await page.waitForTimeout(5000);
     expect (page.url()).toContain('account/register');
-     await page.pause();
 
      lambdatestRegistrationPage.registerNewAccount(true);
-     await page.pause();
 });
