@@ -1,10 +1,11 @@
 // @ts-check
+
 import { Locator, Page } from "@playwright/test";
 
 export class LambdatestRegistrationPage {
     readonly page: Page;
     readonly firstName: Locator;
-    readonly lasttName: Locator;
+    readonly lastName: Locator;
     readonly email: Locator;
     readonly phone: Locator;
     readonly password: Locator;
@@ -17,7 +18,7 @@ export class LambdatestRegistrationPage {
     constructor(page:Page){
         this.page = page;
         this.firstName = page.getByTestId('input-firstname');
-        this.lasttName = page.getByTestId('input-lastname');
+        this.lastName = page.getByTestId('input-lastname');
         this.email = page.getByTestId('input-email');
         this.phone = page.getByTestId('input-telephone');
         this.password = page.getByTestId('input-password');
@@ -30,7 +31,7 @@ export class LambdatestRegistrationPage {
 
     async registerNewAccount(subscribeToNewsletter: boolean){
         await this.firstName.type('firstName');
-        await this.lasttName.type('lastName');
+        await this.lastName.type('lastName');
         await this.email.type('email@gmail.com');
         await this.phone.type('4109139344');
         await this.password.type('Test123!');
@@ -46,5 +47,5 @@ export class LambdatestRegistrationPage {
 
         
 
-    }
+        }
 }

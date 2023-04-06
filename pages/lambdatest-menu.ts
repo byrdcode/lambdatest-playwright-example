@@ -11,7 +11,6 @@ import { Locator, Page } from "@playwright/test";
             this.page = page;
             this.myAccount = page.getByRole('button', {name: 'My Account'});
             this.register = page.getByRole('link', {name: 'Register'});
-            // page.getByRole('button', {name: 'My Account'})
         }
 
         async hoverOverMyAccount(){
