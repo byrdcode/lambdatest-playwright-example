@@ -41,7 +41,7 @@ export class LambdatestRegistrationPage {
         if (subscribeToNewsletter === true){
             await this.newsLetterSubscribeYes.click();
         }else{
-            await this.newsLetterSubscribeYes.click();
+            await this.newsLetterSubscribeNo.click();
         }
         await this.privacyPolicy.check();
         await this.continue.click();
