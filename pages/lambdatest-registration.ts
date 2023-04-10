@@ -1,6 +1,7 @@
 // @ts-check
 
 import { Locator, Page } from "@playwright/test";
+import {faker} from "@faker-js/faker";
 
 export class LambdatestRegistrationPage {
     readonly page: Page;
@@ -29,23 +30,20 @@ export class LambdatestRegistrationPage {
         this.continue = page.getByRole('button', {name: 'Continue'});
     }
 
-    async registerNewAccount(subscribeToNewsletter: boolean){
-        await this.firstName.type('firstName');
-        await this.lastName.type('lastName');
-        await this.email.type('email@gmail.com');
-        await this.phone.type('4109139344');
+    async registerNewAccount(user: any, subscribeToNewsletter: boolean){
+        await this.firstName.type(user.firstName);
+        await this.lastName.type(user.lastName);
+        await this.email.type(user.email);
+        await this.phone.type(user.phoneNumber);
         await this.password.type('Test123!');
         await this.passwordConfirm.type('Test123!');
         
         if (subscribeToNewsletter === true){
             await this.newsLetterSubscribeYes.click();
         }else{
-            await this.newsLetterSubscribeYes.click();
+            await this.newsLetterSubscribeNo.click();
         }
         await this.privacyPolicy.check();
         await this.continue.click();
-
-        
-
         }
 }
